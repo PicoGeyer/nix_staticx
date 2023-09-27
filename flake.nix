@@ -30,10 +30,6 @@
           ];
           patches = [ ./nix_scons.patch ];
         };
-        req-packages = p: with p; [
-          staticx
-        ];
-        build-python = pkgs: pkgs.python3.withPackages req-packages;
       in
         {
           packages.default = staticx;
