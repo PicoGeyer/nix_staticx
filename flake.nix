@@ -24,8 +24,9 @@
           buildInputs = [
             pkgs.glibc.static
           ];
-          propagatedBuildInputs = [
-            pypkgs.pyelftools
+          propagatedBuildInputs = with pypkgs; [
+            pyelftools
+            setuptools
           ];
           patches = [ ./nix_scons.patch ];
         };
