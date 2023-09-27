@@ -1,0 +1,16 @@
+diff --git a/SConstruct b/SConstruct
+index 44bb3b2..a719731 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -75,6 +75,11 @@ cc = get_anywhere('BOOTLOADER_CC')
+ if cc:
+     bootloader_env['CC'] = cc
+ 
++for k in os.environ:
++    if not k.startswith('NIX_'):
++        continue
++    bootloader_env['ENV'][k] = os.environ[k]
++
+ for env in bootloader_env.ModeEnvs():
+     env.Install('$LIBDIR', env.BuildSubdir('libtar'))
+     env.Install('$LIBDIR', env.BuildSubdir('libxz'))
