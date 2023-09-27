@@ -36,6 +36,7 @@
       in
         {
           packages.default = staticx;
+          packages.staticx = staticx;
         }
     );
 }
